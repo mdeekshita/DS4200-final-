@@ -5,20 +5,23 @@ h1 {
 
 .A {
     border: 5px solid black;
+    max-width: 800px;
+    text-align: center;
     padding: 20px 20px 20px 20px;
-    background-color: rgb(46, 98, 125);
+    background-color: rgb(128, 147, 157);
     font-family: 'Monaco', monospace; 
 }
 
 
 h3 {
     text-align: center;
+    text-align: center;
     font-family: "Lucida Console", cursive;
 }
 
 .C {
     text-align: center;
-    background-color: rgb(46, 98, 125);
+    background-color: rgb(128, 147, 157);
     font-family: 'Brush Script M7', cursive;
     font-weight: 400;
     color: white
@@ -26,5 +29,5 @@ h3 {
 }
 
 body {
-    background-color: rgb(91, 132, 152);
+    background-color: rgb(128, 147, 157);
   }
