@@ -10,13 +10,23 @@
     <h1 class = "C">MTA Complaints!</h1>
     <div id="scatterplot"></div>
 
+    <button id = 'summaryButton'>Summary!</button>
+    <button id = 'graphsButton'>Our Graphs!</button>
+    
 
     <script>
-      const navigationButton = document.getElementById('navigationButton')
+      const navigationButton = document.getElementById('summaryButton')
       navigationButton.addEventListener('click', function(){
-          window.location.href = 'test.html';
+          window.location.href = 'summary.html';
       }
       )
+
+      const graphsButton = document.getElementById('graphsButton')
+      graphsButton.addEventListener('click', function(){
+          window.location.href = 'graphs.html';
+      }
+      )
+
   </script>
 
     <p class = "A" >The topic we have chosen is the MTA system in NYC, 
