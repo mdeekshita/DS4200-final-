@@ -11,9 +11,11 @@
 <body>
     <h1 class = "C">Graphs!</h1>
 
-    <button id = 'summaryButton'>Summary!</button>
-    <button id = 'homeButton'>Home Page!</button>
-    
+    <div class="nav-buttons">
+        <button id = 'summaryButton'>Summary!</button>
+        <button id = 'homeButton'>Home Page!</button>
+    </div>
+
     <script>
       const navigationButton = document.getElementById('summaryButton')
       navigationButton.addEventListener('click', function(){
@@ -21,7 +23,7 @@
       }
       )
 
-      const graphsButton = document.getElementById('homeButton')
+      const homeButton = document.getElementById('homeButton')
       homeButton.addEventListener('click', function(){
           window.location.href = 'web.html';
       }
@@ -41,10 +43,11 @@
     <p class = "A" >[summary]</a><p>
         <img src='graph4.png' alt = 'insert something here' width = 400>
 
+    <h3>Altair Plot</h3>
+    <iframe src="altair_plot.html" width="100%" height="600px" style="border:none;"></iframe>
+
   </ul>
 
-    <script src='https://d3js.org/d3.v7.min.js'></script>
-    <script src='templete.js'></script>   
 </body>
 </html>
 </html>
