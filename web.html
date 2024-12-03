@@ -6,55 +6,83 @@
     <title>Homework 3 D3 part</title>
     <link rel="stylesheet" href="design.css">
 </head>
-
 <body>
-    <h1 class = "C">MTA Complaints!</h1>
-    <div id="scatterplot"></div>
+    <h1 class="C">MTA Complaints</h1>
 
-    <button id = 'summaryButton'>Summary!</button>
-    <button id = 'graphsButton'>Our Graphs!</button>
+    <div class="nav-buttons">
+        <button id="summaryButton">Summary!</button>
+        <button id="graphsButton">Our Graphs!</button>
+    </div>
+
+    <p class="A">
+        The topic we have chosen is the MTA system in NYC, 
+        focusing on its efficiency in being run, how well it meets users’
+        expectations (comfort, delays, and safety) as well as ridership levels.
+        Through this research, we hope to understand what causes passengers’
+        satisfaction or dissatisfaction with the MTA service. This is a very 
+        intriguing topic to cover because of the vast number of datasets that 
+        are available in this sector/field. Given the MTA is public transportation,
+        any surveys, tracking methods, and related information about the transportation 
+        system are publicly accessible for analysis. To go into more detail about other 
+        features that affect satisfaction, visit 
+        <a href="https://journals.sagepub.com/doi/abs/10.3141/1735-16">this journal</a>.
+    </p>
     
-    <script>
-      const navigationButton = document.getElementById('summaryButton')
-      navigationButton.addEventListener('click', function(){
-          window.location.href = 'summary.html';
-      }
-      )
-
-      const graphsButton = document.getElementById('graphsButton')
-      graphsButton.addEventListener('click', function(){
-          window.location.href = 'graphs.html';
-      }
-      )
-
-  </script>
-
-    <p class = "A" >The topic we have chosen is the MTA system in NYC, 
-      focusing on its efficiency in being run, how well it meets users’ 
-      expectations (comfort, delays, and safety) as well as ridership levels.
-      Through this research, we hope to understand what causes passengers’ 
-      satisfaction or dissatisfaction with the MTA service. This is a very 
-      intriguing topic to cover because of the vast number of datasets that 
-      are available in this sector/field. Given the MTA is public transportation,
-      any surveys, tracking methods, and related information about the transportation 
-      system are publicly accessible for analysis. To go into more detail about other 
-      features that affect satisfaction, visit  <a href="https://journals.sagepub.com/doi/abs/10.3141/1735-16">this journal</a><p>
-      
-      <p class = "A" > Going into more depth of satisfaction on the MTA, it is 
+    <p class="A">
+        Going into more depth of satisfaction on the MTA, it is 
         also found that the more satisfied a customer is on the MTA, the more likely
         they are to stay loyal and continue using the MTA. This is what prompted us to 
         first start researching about this. If you'd like to learn more about why this is the 
         case, <a href="https://link.springer.com/article/10.1007/s40864-016-0042-0">this link</a>
-         goes into more detail! 
+        goes into more detail!
+    </p>
+
+    <div class="images">
+        <img src="Screenshot 2024-12-01 at 1.25.49 AM.png" alt="Crowded Train" width="400">
+        <img src="Screenshot 2024-12-01 at 1.26.17 AM.png" alt="Traffic" width="400">
+    </div>
+
+    <h3 class="C">Dataset 1</h3>
+
+    <div class="data">
+      <p class="A">
+        To delve deeper into our topic on the Metropolitan Transportation Authority 
+        system in NYC, we chose a dataset that originated from the New York State open 
+        database (data.ny.gov). Specifically, this dataset is sourced from the MTA open 
+        data program/portal and contains 600,000+ rows/observations of MTA customer 
+        feedback data submitted by MTA transit riders spanning from 2014 to 2019. Each 
+        observation contains 8 columns: Agency, Commendation or Complaint, Subject Matter, 
+        Subject Detail, Issue Detail, Year, Quarter, and lastly Branch/Line/Route.
       </p>
+      <img src="data_dictionary .png" alt="Data Dictionary for Dataset 1" width="400">
+    </div>
 
-      <img src='Screenshot 2024-12-01 at 1.25.49 AM.png' alt = 'Crowded Train' width = 400>
-      <img src='Screenshot 2024-12-01 at 1.26.17 AM.png' alt = 'Traffic' width = 400>
+    <h3 class="C">Dataset 2</h3>
 
-        
+    <div class="data">
+      <p class="A">
+        The second dataset we plan to utilize in this analysis is a dataset derived from 
+        the federal government open database (data.gov). This dataset lists all 496 MTA 
+        subway stations with the following attributes: Station Master Reference Number (MRN), 
+        Complex MRN, GTFS Stop ID, the services that stop there, the type of structure the 
+        station is on or in, whether the station is in Manhattan’s Central Business District 
+        (CBD), and their ADA-accessibility status. This subway station dataset is frequently 
+        maintained by NY Open Data and was last updated on August 23, 2024.
+      </p>
+    </div>
 
-  </ul>
+    <footer>
+        <p>&copy; DS4200</p>
+    </footer>
 
-  
+    <script>
+        document.getElementById('summaryButton').addEventListener('click', function() {
+            window.location.href = 'summary.html';
+        });
+
+        document.getElementById('graphsButton').addEventListener('click', function() {
+            window.location.href = 'graphs.html';
+        });
+    </script>
 </body>
 </html>

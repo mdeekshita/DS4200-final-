@@ -1,33 +1,93 @@
-h1 {
+body {
+    background-color: #8A939D;
+    margin: 0;
+    font-family: "Times New Roman", serif;
+    color: #333;
+}
+
+h1, h3 {
     text-align: center;
     font-family: "Times New Roman", serif;
+    color: #FFFFFF;
+    background-color: #404D5C;
+    margin: 20px auto;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .A {
-    border: 5px solid black;
+    border: 3px solid #333;
     max-width: 800px;
-    text-align: center;
-    padding: 20px 20px 20px 20px;
-    background-color: rgb(128, 147, 157);
-    font-family: 'Times New Roman', serif; 
-}
-
-
-h3 {
-    text-align: center;
-    text-align: center;
+    margin: 20px auto;
+    text-align: justify;
+    padding: 20px;
+    background-color: #C9D1D9;
+    color: #333;
     font-family: "Times New Roman", serif;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .C {
     text-align: center;
-    background-color: rgb(128, 147, 157);
-    font-family: 'Times New Roman', serif;
+    background-color: #404D5C;
+    font-family: "Times New Roman", serif;
     font-weight: 400;
-    color: white
-
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-body {
-    background-color: rgb(128, 147, 157);
-  }
+button {
+    background-color: #404D5C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: "Times New Roman", serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #8A939D;
+    transform: translateY(-3px);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    display: block;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px auto;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+footer {
+    text-align: center;
+    background-color: #404D5C;
+    color: white;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    border-top: 3px solid #333;
+}
