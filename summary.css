@@ -17,23 +17,6 @@ h1, h3 {
 }
 
 
-.C {
-    text-align: center;
-    background-color: #404D5C;
-    font-family: "Times New Roman", serif;
-    font-weight: 400;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.A {
-    float: left;
-    margin-right: 10px;
-    max-width: 800px;
-    padding: 20px 20px 20px 20px;
-    font-family: 'Times New Roman', serif; 
-}
 
 button {
     background-color: #404D5C;
