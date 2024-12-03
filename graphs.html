@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphs</title>
+    <link rel="stylesheet" href="graphs.css">
+
+</head>
+
+<body>
+    <h1 class = "C">Graphs!</h1>
+
+    <button id = 'summaryButton'>Summary!</button>
+    <button id = 'homeButton'>Home Page!</button>
+    
+    <script>
+      const navigationButton = document.getElementById('summaryButton')
+      navigationButton.addEventListener('click', function(){
+          window.location.href = 'summary.html';
+      }
+      )
+
+      const graphsButton = document.getElementById('homeButton')
+      homeButton.addEventListener('click', function(){
+          window.location.href = 'web.html';
+      }
+      )
+
+  </script>
+
+    <h3 class = "C"> Plot 1 [Insert details/title of plot]</h3>
+    <p class = "A" >[summary]</a><p>
+      <img src='graph2.png' alt = 'insert something here' width = 400>
+
+    <h3 class = "C"> Plot 2 [Insert details/title of plot]</h3>
+    <p class = "A" >[summary]</a><p>
+        <img src='graph3.png' alt = 'insert something here' width = 400>
+
+    <h3 class = "C"> Plot 3 [Insert details/title of plot]</h3>
+    <p class = "A" >[summary]</a><p>
+        <img src='graph4.png' alt = 'insert something here' width = 400>
+
+  </ul>
+
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+    <script src='templete.js'></script>   
+</body>
+</html>
+</html>
