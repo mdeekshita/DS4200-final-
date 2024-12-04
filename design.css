@@ -91,3 +91,51 @@ footer {
     font-size: 0.9rem;
     border-top: 3px solid #333;
 }
+
+.styled-table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%; 
+    background-color: #C9D1D9;
+    border: 3px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: "Times New Roman", serif;
+    color: #333;
+    text-align: left;
+    overflow: hidden;
+    font-size: 0.9rem; 
+}
+
+.styled-table thead tr {
+    background-color: #404D5C;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem; 
+}
+
+.styled-table th, .styled-table td {
+    padding: 8px 10px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.styled-table tbody tr {
+    background-color: #F8F9FA;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #E9ECEF;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #D6DDE2;
+    cursor: pointer;
+}
+
+.styled-table ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.85rem;
+}
