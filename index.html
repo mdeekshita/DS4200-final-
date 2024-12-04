@@ -3,81 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Visual Map</title>
-    <script src="d3.v7.js"></script> <!-- Adjusted to local d3 file -->
-    <style>
-        /* Add your CSS styles here */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #visualization {
-            margin-top: 20px;
-        }
-    </style>
+    <title>DS4200 Project MTA Complaints Data Analysis</title>
+    <link rel="stylesheet" href="design.css">
 </head>
 <body>
-    <h1>Interactive Visual Map</h1>
-    <select id="filter">
-        <option value="All">All</option>
-        <option value="Commendation">Commendation</option>
-        <option value="Complaint">Complaint</option>
-    </select>
+    <h1 class="C">Analysis on MTA Complaints from 2014 to 2019</h1>
 
-    <div id="visualization"></div>
+    <div class="nav-buttons">
+        <button id="homeButton">Home!</button>
+        <button id="graphsButton">Our Graphs!</button>
+        <button id="summaryButton">Summary!</button>
+           
+    </div>
+
+    <p class="A">
+        The topic we have chosen is the MTA system in NYC, 
+        focusing on its efficiency in being run, how well it meets users’
+        expectations (comfort, delays, and safety) as well as ridership levels.
+        Through this research, we hope to understand what causes passengers’
+        satisfaction or dissatisfaction with the MTA service. This is a very 
+        intriguing topic to cover because of the vast number of datasets that 
+        are available in this sector/field. Given the MTA is public transportation,
+        any surveys, tracking methods, and related information about the transportation 
+        system are publicly accessible for analysis. To go into more detail about other 
+        features that affect satisfaction, visit 
+        <a href="https://journals.sagepub.com/doi/abs/10.3141/1735-16">this journal</a>.
+    </p>
+    
+    <p class="A">
+        Going into more depth of satisfaction on the MTA, it is 
+        also found that the more satisfied a customer is on the MTA, the more likely
+        they are to stay loyal and continue using the MTA. This is what prompted us to 
+        first start researching about this. If we could find out what areas need the most 
+        work, we can direct our resources and time to solving that, so more people will be 
+        satisfied with it. If you'd like to learn more about why this is the 
+        case, <a href="https://link.springer.com/article/10.1007/s40864-016-0042-0">this link</a>
+        goes into more detail!
+    </p>
+
+    <div class="images">
+        <img src="Screenshot 2024-12-01 at 1.25.49 AM.png" alt="Crowded Train" width="400">
+        <img src="Screenshot 2024-12-01 at 1.26.17 AM.png" alt="Traffic" width="400">
+    </div>
+
+    <h3 class="C">Introduction to our dataset</h3>
+
+    <div class="data">
+      <p class="A">
+        To delve deeper into our topic on the Metropolitan Transportation Authority 
+        system in NYC, we chose a dataset that originated from the New York State open 
+        database (data.ny.gov). Specifically, this dataset is sourced from the MTA open 
+        data program/portal and contains 600,000+ rows/observations of MTA customer 
+        feedback data submitted by MTA transit riders spanning from 2014 to 2019. Each 
+        observation contains 8 columns: Agency, Commendation or Complaint, Subject Matter, 
+        Subject Detail, Issue Detail, Year, Quarter, and lastly Branch/Line/Route.
+      </p>
+      <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Data Label</th>
+                <th>Data Type</th>
+                <th>Data Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Agency</td>
+                <td>Text</td>
+                <td>
+                    The agency referenced in the email; valid values are:
+                    <ul>
+                        <li>Long Island Rail Road</li>
+                        <li>Metro-North Railroad</li>
+                        <li>NYC Buses</li>
+                        <li>Subways</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Commendation or Complaint</td>
+                <td>Text</td>
+                <td>
+                    Type of Issue (complaint or commendation) referenced in the email; valid values are:
+                    <ul>
+                        <li>Complaint</li>
+                        <li>Commendation</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Subject Matter</td>
+                <td>Text</td>
+                <td>
+                    Subject matter referenced in the email; valid values are:
+                    <ul>
+                        <li>Buses</li>
+                        <li>Commendation</li>
+                        <li>Complaint</li>
+                        <li>Customer</li>
+                        <li>Employees</li>
+                        <li>Ferry Service – Hudson River</li>
+                        <li>MetroCard/Tickets/E-ZPass & Tolls</li>
+                        <li>MTA Agency Cars / Trucks</li>
+                        <li>Policies, Rules & Regulations</li>
+                        <li>Public Hearing</li>
+                        <li>Schedules / Reservations</li>
+                        <li>Station/Bus Stop/Facility/Structure</li>
+                        <li>Telephone / Website / Mobile Apps</li>
+                        <li>Trains</li>
+                        <li>Travel Disruption / Trip Problem</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Subject Detail</td>
+                <td>Text</td>
+                <td>The specific area of service referenced in the email</td>
+            </tr>
+            <tr>
+                <td>Issue Detail</td>
+                <td>Text</td>
+                <td>The feedback, pre-defined response, or category of the area of service</td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td>Integer</td>
+                <td>The year that the complaint/commendation was entered</td>
+            </tr>
+            <tr>
+                <td>Quarter</td>
+                <td>Integer</td>
+                <td>The quarter of the year in which the issue occurred</td>
+            </tr>
+            <tr>
+                <td>Branch/Line/Route</td>
+                <td>Character</td>
+                <td>The branch/line/route of transit that the issue occurred on</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    </div>
+
+    <footer>
+        <p>&copy; DS4200</p>
+    </footer>
 
     <script>
-        // Load the CSV file
-        d3.csv("updated_dataset.csv").then(data => {
-            console.log(data); // Check if data is loaded correctly
-
-            // Initialize the visualization
-            createVisualization(data);
-
-            // Event listener for filter change
-            d3.select("#filter").on("change", function() {
-                const selectedValue = d3.select(this).property("value");
-                const filteredData = selectedValue === "All" ? data : data.filter(d => d["Commendation or Complaint"] === selectedValue);
-                createVisualization(filteredData);
-            });
-        }).catch(error => {
-            console.error('Error fetching the CSV file:', error);
+        document.getElementById('summaryButton').addEventListener('click', function() {
+            window.location.href = 'summary.html';
         });
 
-        function createVisualization(data) {
-            // Clear previous visualization
-            d3.select("#visualization").selectAll("*").remove();
+        document.getElementById('graphsButton').addEventListener('click', function() {
+            window.location.href = 'graphs.html';
+        });
 
-            // Set dimensions for the visualization
-            const width = 800;
-            const height = 400;
-
-            // Create an SVG element
-            const svg = d3.select("#visualization")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", height);
-
-            // Example: Create a simple bar chart
-            const x = d3.scaleBand()
-                .range([0, width])
-                .padding(0.1)
-                .domain(data.map(d => d["Branch/Line/Route"]));
-
-            const y = d3.scaleLinear()
-                .range([height, 0])
-                .domain([0, d3.max(data, d => +d["Year"])]);
-
-            // Append rectangles for the bar chart
-            svg.selectAll(".bar")
-                .data(data)
-                .enter().append("rect")
-                .attr("class", "bar")
-                .attr("x", d => x(d["Branch/Line/Route"]))
-                .attr("width", x.bandwidth())
-                .attr("y", d => y(+d["Year"]))
-                .attr("height", d => height - y(+d["Year"]))
-                .attr("fill", "green");
-        }
+        document.getElementById('homeButton').addEventListener('click', function() {
+            window.location.href = 'web.html';
+        });
     </script>
 </body>
 </html>

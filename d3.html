@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Visual Map</title>
+    <script src="d3.v7.js"></script> <!-- Adjusted to local d3 file -->
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #visualization {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Visual Map</h1>
+    <select id="filter">
+        <option value="All">All</option>
+        <option value="Commendation">Commendation</option>
+        <option value="Complaint">Complaint</option>
+    </select>
+
+    <div id="visualization"></div>
+
+    <script>
+        // Load the CSV file
+        d3.csv("updated_dataset.csv").then(data => {
+            console.log(data); // Check if data is loaded correctly
+
+            // Initialize the visualization
+            createVisualization(data);
+
+            // Event listener for filter change
+            d3.select("#filter").on("change", function() {
+                const selectedValue = d3.select(this).property("value");
+                const filteredData = selectedValue === "All" ? data : data.filter(d => d["Commendation or Complaint"] === selectedValue);
+                createVisualization(filteredData);
+            });
+        }).catch(error => {
+            console.error('Error fetching the CSV file:', error);
+        });
+
+        function createVisualization(data) {
+            // Clear previous visualization
+            d3.select("#visualization").selectAll("*").remove();
+
+            // Set dimensions for the visualization
+            const width = 800;
+            const height = 400;
+
+            // Create an SVG element
+            const svg = d3.select("#visualization")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            // Example: Create a simple bar chart
+            const x = d3.scaleBand()
+                .range([0, width])
+                .padding(0.1)
+                .domain(data.map(d => d["Branch/Line/Route"]));
+
+            const y = d3.scaleLinear()
+                .range([height, 0])
+                .domain([0, d3.max(data, d => +d["Year"])]);
+
+            // Append rectangles for the bar chart
+            svg.selectAll(".bar")
+                .data(data)
+                .enter().append("rect")
+                .attr("class", "bar")
+                .attr("x", d => x(d["Branch/Line/Route"]))
+                .attr("width", x.bandwidth())
+                .attr("y", d => y(+d["Year"]))
+                .attr("height", d => height - y(+d["Year"]))
+                .attr("fill", "green");
+        }
+    </script>
+</body>
+</html>
