@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-01cea8f5f9c478814d1ff236f3293da2"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Season", "legend": null, "type": "nominal"}, "tooltip": [{"field": "Season", "title": "Season", "type": "nominal"}, {"field": "count", "title": "Number of Reports", "type": "quantitative"}], "x": {"field": "Season", "sort": ["Winter", "Spring", "Summer", "Fall"], "title": "Season", "type": "nominal"}, "y": {"field": "count", "title": "Number of Reports", "type": "quantitative"}}, "height": 300, "params": [{"name": "Report Type", "select": {"type": "point", "fields": ["Commendation or Complaint"]}, "bind": {"input": "select", "options": ["commendation", "complaint"]}}], "title": "NYC Transit System Reports by Season", "transform": [{"filter": {"param": "Report Type"}}], "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-01cea8f5f9c478814d1ff236f3293da2": [{"Season": "Fall", "Commendation or Complaint": "commendation", "count": 2550}, {"Season": "Fall", "Commendation or Complaint": "complaint", "count": 48411}, {"Season": "Spring", "Commendation or Complaint": "commendation", "count": 2422}, {"Season": "Spring", "Commendation or Complaint": "complaint", "count": 46085}, {"Season": "Summer", "Commendation or Complaint": "commendation", "count": 2478}, {"Season": "Summer", "Commendation or Complaint": "complaint", "count": 48545}, {"Season": "Winter", "Commendation or Complaint": "commendation", "count": 2143}, {"Season": "Winter", "Commendation or Complaint": "complaint", "count": 41128}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
